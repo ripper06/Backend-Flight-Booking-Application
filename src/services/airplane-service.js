@@ -46,8 +46,23 @@ async function getAirplane(id){
     }
 }
 
+async function destroyAirplane(id){
+    try {
+        
+        const response = await airPlaneRepository.destroy(id);
+        return response;
+
+    } catch (error) {
+        if(error.statusCode == StatusCodes.NOT_FOUND){
+            throw new AppError('The airplane you requested to delete is not present', error.statusCode);
+        }
+        throw new AppError('Canot fetch data of all airplanes...', StatusCodes.BAD_REQUEST)
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
     getAirplane,
+    destroyAirplane
 }

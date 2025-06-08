@@ -14,9 +14,14 @@ router.get('/',
     AirplaneController.getAirplanes
 );
 
+// /api/v1/airplanes/id -> GET req
 router.get('/:id',
     AirplaneController.getAirplane
 );
+
+router.delete('/:id',
+    AirplaneController.destroyAirplane
+)
 
 
 
