@@ -32,7 +32,22 @@ async function getAirplanes(){
     }
 }
 
+async function getAirplane(id){
+    try {
+        
+        const airplane = await airPlaneRepository.get(id);
+        return airplane;
+
+    } catch (error) {
+        if(error.statusCode == StatusCodes.NOT_FOUND){
+            throw new AppError('The airplane you requested is not present', error.statusCode);
+        }
+        throw new AppError('Canot fetch data of the airplane...', StatusCodes.BAD_REQUEST)
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
+    getAirplane,
 }
