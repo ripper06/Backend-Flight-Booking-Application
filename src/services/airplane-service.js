@@ -60,9 +60,22 @@ async function destroyAirplane(id){
     }
 }
 
+async function updateAirplane(id,data){
+    try {
+        const response = await airPlaneRepository.update(id,data);
+        return response;
+    } catch (error) {
+        if(error.statusCode == StatusCodes.NOT_FOUND){
+            throw new AppError('The city you requested to delete is not present', error.statusCode);
+        }
+        throw new AppError('Canot fetch data of the city...', StatusCodes.BAD_REQUEST)
+    }
+}
+
 module.exports = {
     createAirplane,
     getAirplanes,
     getAirplane,
-    destroyAirplane
+    destroyAirplane,
+    updateAirplane,
 }

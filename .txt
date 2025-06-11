@@ -45,3 +45,32 @@ then in cmd
 3. git remote add origin hhtp_status_code
  git remote add origin https://github.com/ripper06/Base-Node-Project-Template.git
  4.  git push origin main/master
+
+
+ //sequalize
+
+ 1. Creating database
+ cmd - npx sequelize db:create
+Loaded configuration file "config\config.json"
+creates the database
+
+2. Create table inside database
+cmd - npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+DOESN'T creates a table with table name with its attributes.
+Only create 2 folders one in model 
+and another in migrations.
+
+Actual creation will happen after 
+we commit the pending migrations to db, done by
+cmd - npx sequelize db:migrate
+
+js level constraints put in models folder eg. airplane.js
+database level constraints put in migrations
+
+So chane both migration and models to change both at javascript level and database level.
+
+express can't read/parse req.body....so we have to make changes to make it parse in the json format
+app.use(express.json());
+
+3.  npx sequelize seed:generate --name add-airplanes --> to create seeder files 
+    npx sequelize db:seed:all --> commits all seder files data into database
