@@ -74,3 +74,5 @@ app.use(express.json());
 
 3.  npx sequelize seed:generate --name add-airplanes --> to create seeder files 
     npx sequelize db:seed:all --> commits all seder files data into database
+
+    1:40 -> airport middleware
