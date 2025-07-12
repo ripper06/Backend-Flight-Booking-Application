@@ -16,5 +16,9 @@ router.get('/',
         FlightController.getAllFlights
     );
 
+    // /api/v1/flights/:id  GET
+router.get('/:id', 
+        FlightController.getFlight
+    );
 
 module.exports = router;

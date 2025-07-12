@@ -67,6 +67,9 @@ cmd - npx sequelize db:migrate
 js level constraints put in models folder eg. airplane.js
 database level constraints put in migrations
 
+npx sequelize db:seed --seed <seed_file_name>
+add the seed content of that perticular file into database
+
 So chane both migration and models to change both at javascript level and database level.
 
 express can't read/parse req.body....so we have to make changes to make it parse in the json format
